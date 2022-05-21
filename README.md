@@ -47,12 +47,14 @@ router.get('/api/v1/login', handlers.postLogin);
 ```
 
 ## Run tests
-
 ```sh
 npm run test
 ```
 
 ## Modules
+This section will go more in depth into the modules available in this 
+package and provide examples of how to use them. 
+
 ### Models
 The models module contains the Mongoose model for the users and utility 
 tokens. The models are used by the handlers to interact with the database.
@@ -116,7 +118,50 @@ each function are also shown below
 | getProfilePicture  | No            | fileName   | None | Returns a profile picture as a download |
 
 **Examples**
+```sh
+const express = require('express');
+const { handlers } = require('@zentechdev/emuser');
+const requireAuth = require('../middleware/auth');
 
+const router = express.Router();
+
+// GET /api/v1/users
+// Returns details about current user
+// Requires none
+router.get('/', requireAuth, handlers.getCurrentUserInfo);
+
+// GET /api/v1/users/auth
+// Checks if a user is logged in
+// Requires none
+router.get('/auth', requireAuth, handlers.getUserAuth);
+
+// GET /api/v1/users/:username
+// Returns details about given user
+// Requires none
+router.get('/:username', requireAuth, handlers.getUserInfo);
+
+// POST /api/v1/users
+// Registers a new account
+// Requires username, firstName, lastName, email, userType, password
+router.post('/', handlers.postUser);
+
+// POST /api/v1/users/login
+// Logs a user in
+// Requires username, password
+router.post('/login', handlers.postLogin);
+
+// POST /api/v1/users/picture
+// Updates a user's profile picture
+// Requires image file
+router.post('/picture', requireAuth, handlers.postProfilePicture);
+
+// GET /api/v1/users/picture/:fileName
+// Returns a user's profile picture
+// Requires fileName param
+router.get('/picture/:fileName', handlers.getProfilePicture);
+
+module.exports = router;
+```
 
 ## Author
 
