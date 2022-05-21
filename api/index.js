@@ -53,7 +53,7 @@ const postUser = async (req, res) => {
     }
 
     const user = new User(userArgs);
-    const savedUser = await user.save();
+    await user.save();
 
     const token = jwt.sign({ username: userArgs.username },
         process.env.SESSION_SECRET,

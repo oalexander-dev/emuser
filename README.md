@@ -25,6 +25,12 @@ npm install @zentechdev/emuser --save
 ```
 
 ## Usage
+Using this library requires that the application has a valid Mongoose 
+connection to a database. Some handlers require body parameters, some
+require URL parameters, some require authentication, and some are a some 
+combination of those three. Most IDEs will show the handler's documentation
+comment if you hover over the name of the function, which will tell you
+what is required for using that handler. Additionally, check the chart below.
 
 ```sh
 // Import model and handlers
@@ -44,6 +50,25 @@ router.get('/api/v1/login', handlers.postLogin);
 ```sh
 npm run test
 ```
+
+## Modules
+### Models
+The models module contains the Mongoose model for the users and utility 
+tokens. The models are used by the handlers to interact with the database.
+The models can also be used directly to interact with the database. 
+
+The first model is the User model. This represents a user in the database.
+The following table displays the fields of this model.
+
+| Field Name  | Type   | Required |
+| ----------- | ------ | -------- |
+| username    | String | Yes      |
+| password    | String | Yes      |
+| firstName   | String | Yes      |
+| lastName    | String | Yes      |
+| userType    | String ("member" or "rushee") | Yes | 
+| email       | String | Yes      |
+| image       | String | No       |
 
 ## Author
 
