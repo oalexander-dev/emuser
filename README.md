@@ -12,6 +12,9 @@
   <a href="https://github.com/oalexander-dev/zentechdev-emuser/blob/master/LICENSE.txt" target="_blank">
     <img alt="License" src="https://img.shields.io/npm/l/@zentechdev/emuser">
   </a>
+  <a href="https://www.npmjs.com/package/@zentechdev/emuser" target="_blank">
+    <img alt="npm" src="https://img.shields.io/npm/dw/@zentechdev/emuser?label=npm%20downloads">
+  </a>
 </p>
 
 > Express and Mongo stack user models and endpoints
