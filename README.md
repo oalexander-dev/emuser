@@ -21,13 +21,22 @@
 ## Install
 
 ```sh
-npm install @zentechdev/emuser
+npm install @zentechdev/emuser --save
 ```
 
 ## Usage
 
 ```sh
-const User = require('@zentechdev/emuser');
+// Import model and handlers
+const { User: model, handlers } = require('@zentechdev/emuser');
+
+// Interact with user model, provides direct access to mongoose model
+const user1 = User.model.findOne({ username: req.user.username });
+
+// Use user handler in an endpoint, check documentation for handler requirements
+const express = require('express');
+const router = express.Router();
+router.get('/api/v1/login', handlers.postLogin);
 ```
 
 ## Run tests
