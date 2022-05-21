@@ -30,7 +30,8 @@ connection to a database. Some handlers require body parameters, some
 require URL parameters, some require authentication, and some are a some 
 combination of those three. Most IDEs will show the handler's documentation
 comment if you hover over the name of the function, which will tell you
-what is required for using that handler. Additionally, check the chart below.
+what is required for using that handler. Additionally, you can find it in 
+the chart below.
 
 ```sh
 // Import model and handlers
@@ -70,6 +71,52 @@ The following table displays the fields of this model.
 | userType    | String ("member" or "rushee") | Yes | 
 | email       | String | Yes      |
 | image       | String | No       |
+
+**User Schema Examples**
+1. Find a user in the database
+```sh
+const { User: model } = require('@zentechdev/emuser');
+
+// must call query functions from inside an async function and use
+// await or a callback, or use the .then() construction
+
+const getUserByUsername = async (username) => {
+    const user await User.findOne({ username: 'user123' });
+    return user;
+};
+
+const newUser = new User({
+    firstName: 'Test',
+    lastName: 'User',
+    username: 'testuser123',
+    password: 'password2022',
+    email: 'test@test.com',
+    userType: 'member'
+});
+await newUser.save();
+// 
+```
+
+### Handlers
+The handlers module containts the functions that will interact with the 
+database using the request object and constructing a response using
+the response object. These functions should be passed directly into
+the Express router endpoints, as shown below. The requirements to use
+each function are also shown below
+
+**Handler Functions**
+| Function Name      | Requires Auth | URL Params | Body Params | Purpose |
+| ------------------ | ------------- | ---------- | ----------- | ------- |
+| getCurrentUserInfo | Yes           | None       | None       | Returns current user's info |
+| getUserAuth        | Yes           | None       | None       | Returns current user's auth status |
+| getUserInfo        | Yes           | username   | None       | Returns given user's info |
+| postUser           | No            | None       | username, firstName, lastName, email, userType, and password | Registers a new user |
+| postLogin          | No            | None       | username, password | Logs a user in and returns a token |
+| postProfilePicture | Yes           | None       | File object uploaded in a form | Updates a user's profile picture with the uploaded image |
+| getProfilePicture  | No            | fileName   | None | Returns a profile picture as a download |
+
+**Examples**
+
 
 ## Author
 
