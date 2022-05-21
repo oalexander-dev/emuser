@@ -29,15 +29,17 @@ npm install @zentechdev/emuser --save
 
 ## Usage
 
-__**Using this library requires that the application has a valid Mongoose 
-connection to a database.**__
+**IMPORTANT: Using this library requires that the application has a valid Mongoose 
+connection to a database.**
 
-Some handlers require body parameters, somerequire URL parameters, some 
-require authentication, and some are a some combination of 
-those three. Most IDEs will show the handler's documentation
+Using this package involves passing the handlers to Express router endpoints
+as handlers, or interacting with the User model directly. Both methods are
+supported and documented below. Some handlers require body parameters, some
+require URL parameters, some require authentication, and some are a some 
+combination of those three. Most IDEs will show the handler's documentation
 comment if you hover over the name of the function, which will tell you
 what is required for using that handler. Additionally, you can find it in 
-the chart below.
+the charts below.
 
 ```sh
 // Import model and handlers
@@ -83,6 +85,7 @@ The following table displays the fields of this model.
 | email       | String | Yes      |
 | image       | String | No       |
 
+
 **Examples**
 ```sh
 const { User: model } = require('@zentechdev/emuser');
@@ -124,6 +127,7 @@ each function are also shown below
 | postLogin          | No            | None       | username, password | Logs a user in and returns a token |
 | postProfilePicture | Yes           | None       | File object uploaded in a form | Updates a user's profile picture with the uploaded image |
 | getProfilePicture  | No            | fileName   | None | Returns a profile picture as a download |
+
 
 **Examples**
 ```sh
