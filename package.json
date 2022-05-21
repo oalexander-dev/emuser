@@ -1,6 +1,6 @@
 {
   "name": "@zentechdev/emuser",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Express and Mongo stack user models and endpoints",
   "main": "index.js",
   "scripts": {
