@@ -29,8 +29,8 @@ npm install @zentechdev/emuser --save
 
 ## Usage
 
-**Using this library requires that the application has a valid Mongoose 
-connection to a database.**
+__**Using this library requires that the application has a valid Mongoose 
+connection to a database.**__
 
 Some handlers require body parameters, somerequire URL parameters, some 
 require authentication, and some are a some combination of 
