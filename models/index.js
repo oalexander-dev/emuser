@@ -25,8 +25,7 @@ const userSchema = new mongoose.Schema({
     },
     userType: {
         type: String,
-        required: true,
-        enum: ['member', 'rushee']
+        required: true
     },
     image: {
         type: String

@@ -76,7 +76,7 @@ The following table displays the fields of this model.
 | password    | String | Yes      |
 | firstName   | String | Yes      |
 | lastName    | String | Yes      |
-| userType    | String ("member" or "rushee") | Yes | 
+| userType    | String | Yes      | 
 | email       | String | Yes      |
 | image       | String | No       |
 
