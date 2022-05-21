@@ -60,6 +60,7 @@ The models can also be used directly to interact with the database.
 The first model is the User model. This represents a user in the database.
 The following table displays the fields of this model.
 
+**User Schema**
 | Field Name  | Type   | Required |
 | ----------- | ------ | -------- |
 | username    | String | Yes      |
